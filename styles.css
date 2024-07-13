@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #1d1d1d;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  background: #252526;
+  padding-top: 56px;
+}
+
+.navbar {
+  padding-top: 10px !important;
+}
+
+.navbar.fixed-top {
+  background: #1a1a1a;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+  margin-right: 40px;
+}
+
+.navbar-brand {
+  color: #fff !important;
+  font-size: 14px !important;
+  padding-left: 60px;
+}
+
+.nav-link {
+  color: #fff !important;
+  font-size: 14px !important;
+  padding: 0 20px !important;
+  display: inline-block;
+  line-height: 40px;
+  position: relative;
+}
+
+.fa-bars {
+  color: #fff;
+  margin-right: 15px;
+  font-size: 40px !important;
+}
+
+.navbar-toggler {
+  border: 0 !important;
+  outline: none !important;
+  padding: initial !important;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  font-weight: bold;
+  background-color: #a2a6ff;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 5px;
+}
+
+.navbar-nav {
+  align-items: center;
+}
+
+/* Custom styles for mobile view */
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    width: 100%;
+    text-align: right;
+  }
+
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
+}
+
+/* Custom styles for headings */
+h2 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 2.0em;
+  color: #FCFBF4;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  color: #FCFBF4;
+  text-align: left;
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+/* Additional styles for sections */
+section#about {
+  padding: 250px 20px;
+}
+
+section#projects {
+  padding: 10px 20px;
+  margin-bottom: 500px;
+}
+
+section#resume {
+  padding: 10px 20px;
+}
+
+section#contact {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+#about-heading,
+#projects-heading,
+#resume-heading,
+#contact-heading {
+  font-weight: bold;
+  margin-left: 40px;
+  position: relative;
+  text-align: left;
+}
+
+.separator {
+  height: 2px;
+  background-color: #333;
+  margin: 20px 0;
+  margin-left: 35px;
+  margin-right: 35px;
+  border-radius: 1px;
+}
+
+.fa-linkedin {
+  color: #fff;
+  font-size: 30px !important;
+}
+
+.fa-github {
+  color: #fff;
+  font-size: 30px !important;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: left;
+  margin-left: 25px;
+  margin-top: 20px;
+}
+
+.contact-icon {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  text-decoration: none;
+  color: #fff;
+  /* Ensure default color for the icons and text */
+}
+
+.contact-icon span {
+  color: #fcfbf4d7;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-left: 10px;
+  font-size: 17px;
+}
+
+.contact-icon span:hover {
+  color: #CAF;
+  transition: 0.5s;
+}
+
+footer {
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 20px 0;
+  background: #1a1a1a;
+}
+
+footer p {
+  padding-left: 20px;
+}
+
+.resume-button-container {
+  display: flex;
+  justify-content: left;
+  margin-left: 35px;
+  margin-top: 20px;
+}
+
+.resume-button {
+  background-color: #f8f5ec;
+  color: #333;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.resume-button i {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: #dda0dd;
+}
+
+.resume-button:hover i {
+  transform: translateX(5px);
+}
