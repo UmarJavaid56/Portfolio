@@ -154,6 +154,11 @@ section#contact {
   font-size: 30px !important;
 }
 
+.fa-envelope {
+  color: #fff;
+  font-size: 30px !important;
+}
+
 .contact-icons {
   display: flex;
   justify-content: left;
