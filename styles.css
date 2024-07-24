@@ -58,13 +58,35 @@ body {
 .nav-link.active,
 .nav-link:hover {
   font-weight: bold;
-  background-color: #a2a6ff;
+  background-color: #50C878;
   border-bottom: 2px solid #fff;
   padding-bottom: 5px;
 }
 
 .navbar-nav {
   align-items: center;
+}
+
+/* Responsive adjustments for mobile view */
+@media (max-width: 767.98px) {
+  .about-text {
+    font-size: 18px !important;
+    /* Further reduce the font size for smaller screens */
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    word-wrap: break-word !important;
+    /* Ensure text wraps correctly */
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin-left: 10px;
+  }
+
+  .separator {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
 
 /* Custom styles for mobile view */
@@ -114,15 +136,22 @@ p {
   margin-bottom: 20px;
   margin-left: 40px;
   margin-right: 40px;
+  word-wrap: break-word;
+  /* Ensure text wraps correctly */
 }
+
+
+
 
 /* Additional styles for sections */
 section#about {
   padding: 30px 20px;
+  padding-bottom: 0px;
 }
 
 section#projects {
   padding: 10px 20px;
+  padding-top: 5px;
 }
 
 section#resume {
@@ -307,34 +336,16 @@ footer p {
   height: 250px;
 }
 
-#typing1,
-#typing2,
-#typing3,
-#typing4 {
-  border-right: .1em solid #FCFBF4;
-  white-space: nowrap;
+#typing1 {
+  white-space: normal;
+  /* Change to normal for word wrapping */
   overflow: hidden;
   display: inline-block;
   width: 100%;
   /* Ensure it takes up the full width of its container */
   word-break: break-word;
   /* Break words if needed to prevent overflow */
-}
-
-
-#typing1,
-#typing2,
-#typing3,
-#typing4,
-#typing5 {
-  border-right: .1em solid #FCFBF4;
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-block;
-  width: 100%;
-  /* Ensure it takes up the full width of its container */
-  word-break: break-word;
-  /* Break words if needed to prevent overflow */
+  border-right: none;
 }
 
 @keyframes typing {
