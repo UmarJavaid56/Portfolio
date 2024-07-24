@@ -106,9 +106,19 @@ p {
   margin-left: 40px;
 }
 
+.about-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 25px;
+  color: #50C878;
+  text-align: left;
+  margin-bottom: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
 /* Additional styles for sections */
 section#about {
-  padding: 100px 20px;
+  padding: 30px 20px;
 }
 
 section#projects {
@@ -251,16 +261,101 @@ footer p {
 .card-img-top {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
 }
 
 .card-title {
   font-size: 1.5rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin-bottom: 10px;
 }
 
 .card-text {
   font-size: 1rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   color: #ccc;
+  margin-left: 10px;
+}
+
+.card-link {
+  text-decoration: none;
+}
+
+/* Custom styles for different project cards */
+.card-custom-1 .card-img-top {
+  height: 200px;
+}
+
+.card-custom-2 .card-img-top {
+  height: 250px;
+}
+
+.card-custom-3 .card-img-top {
+  height: 250px;
+}
+
+.card-custom-4 .card-img-top {
+  height: 290px;
+}
+
+.card-custom-5 .card-img-top {
+  height: 250px;
+}
+
+.card-custom-6 .card-img-top {
+  height: 250px;
+}
+
+#typing1,
+#typing2,
+#typing3,
+#typing4 {
+  border-right: .1em solid #FCFBF4;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+  /* Ensure it takes up the full width of its container */
+  word-break: break-word;
+  /* Break words if needed to prevent overflow */
+}
+
+
+#typing1,
+#typing2,
+#typing3,
+#typing4,
+#typing5 {
+  border-right: .1em solid #FCFBF4;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+  /* Ensure it takes up the full width of its container */
+  word-break: break-word;
+  /* Break words if needed to prevent overflow */
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: #FCFBF4;
+  }
 }
