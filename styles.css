@@ -119,6 +119,58 @@ h2 {
   margin-bottom: 20px;
 }
 
+/* Style for .organization class */
+.organization-1 {
+  font-size: 16px;               
+  font-weight: bold;            
+  color:#9b3178;                
+  text-transform: uppercase;    
+  margin: 10px 0;               
+  letter-spacing: 0.25px;           
+  font-family: 'Arial', sans-serif;  
+  padding-bottom: 5px;          
+}
+
+
+.organization-1:hover {
+  color: #6565e6;              
+  cursor: pointer;           
+}
+
+.organization-2 {
+  font-size: 16px;               
+  font-weight: bold;            
+  color:#e34949;                
+  text-transform: uppercase;    
+  margin: 10px 0;               
+  letter-spacing: 0.25px;           
+  font-family: 'Arial', sans-serif;  
+  padding-bottom: 5px;          
+}
+
+
+.organization-2:hover {
+  color: #6565e6;              
+  cursor: pointer;           
+}
+
+.organization-3 {
+  font-size: 16px;               
+  font-weight: bold;            
+  color:#50C878;                
+  text-transform: uppercase;    
+  margin: 10px 0;               
+  letter-spacing: 0.25px;           
+  font-family: 'Arial', sans-serif;  
+  padding-bottom: 5px;          
+}
+
+
+.organization-3:hover {
+  color: #6565e6;              
+  cursor: pointer;           
+}
+
 p {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 20px;
@@ -127,6 +179,8 @@ p {
   margin-bottom: 20px;
   margin-left: 40px;
 }
+
+
 
 .about-text {
   font-family: 'Courier New', Courier, monospace;
@@ -139,14 +193,15 @@ p {
   word-wrap: break-word;
   /* Ensure text wraps correctly */
 }
-
-
-
-
 /* Additional styles for sections */
 section#about {
   padding: 30px 20px;
   padding-bottom: 0px;
+}
+
+section#experience {
+  padding: 10px 20px;
+  padding-bottom: 5px;
 }
 
 section#projects {
@@ -164,6 +219,7 @@ section#contact {
 }
 
 #about-heading,
+#experience-heading,
 #projects-heading,
 #resume-heading,
 #contact-heading {
@@ -279,6 +335,7 @@ footer p {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 10px;
 }
 
 .card:hover {
@@ -311,6 +368,7 @@ footer p {
   text-decoration: none;
 }
 
+
 /* Custom styles for different project cards */
 .card-custom-1 .card-img-top {
   height: 200px;
@@ -335,6 +393,16 @@ footer p {
 .card-custom-6 .card-img-top {
   height: 270px;
 }
+
+.card-custom-7 {
+  height: 150px;
+}
+
+
+.card-custom-7 p {
+  font-size: 20px;
+}
+
 
 #typing1 {
   white-space: normal;
@@ -370,3 +438,35 @@ footer p {
     border-color: #FCFBF4;
   }
 }
+
+.mist-duration-container {
+  display: flex;
+  justify-content: left;
+  margin-left: 0px;
+  margin-top: 0px;
+  background-color: #f8f5ec;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.external-link-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1.2em; /* Adjust size as needed */
+}
+.card-custom-1 {
+    position: relative; /* Ensure the card is a relative container for absolute positioning */
+}
+
+
