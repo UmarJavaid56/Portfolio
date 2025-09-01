@@ -123,7 +123,7 @@ h2 {
 .organization-1 {
   font-size: 16px;               
   font-weight: bold;            
-  color:#9b3178;                
+  color:#76B900;                
   text-transform: uppercase;    
   margin: 10px 0;               
   letter-spacing: 0.25px;           
@@ -140,7 +140,7 @@ h2 {
 .organization-2 {
   font-size: 16px;               
   font-weight: bold;            
-  color:#e34949;                
+  color:#9b3178;                
   text-transform: uppercase;    
   margin: 10px 0;               
   letter-spacing: 0.25px;           
@@ -157,7 +157,7 @@ h2 {
 .organization-3 {
   font-size: 16px;               
   font-weight: bold;            
-  color:#50C878;                
+  color:#e34949;                
   text-transform: uppercase;    
   margin: 10px 0;               
   letter-spacing: 0.25px;           
@@ -167,6 +167,23 @@ h2 {
 
 
 .organization-3:hover {
+  color: #6565e6;              
+  cursor: pointer;           
+}
+
+.organization-4 {
+  font-size: 16px;               
+  font-weight: bold;            
+  color:#50C878;                
+  text-transform: uppercase;    
+  margin: 10px 0;               
+  letter-spacing: 0.25px;           
+  font-family: 'Arial', sans-serif;  
+  padding-bottom: 5px;          
+}
+
+
+.organization-4:hover {
   color: #6565e6;              
   cursor: pointer;           
 }

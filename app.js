@@ -18,11 +18,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     const lines = [
-        "Hi! I'm Umar Javaid, a passionate computer engineering student with experience in embedded systems, FPGA development, robotics, machine learning, and game development. I have worked on several exciting projects, such as building electronic devices, creating digital games, and developing advanced image processing algorithms. I'm always eager to learn and apply new technologies to solve real-world problems."
+        "Hi! I'm Umar Javaid, a computer engineering student with experience in embedded systems, FPGA development, robotics, machine learning, and game development. I have worked on several exciting projects, such as building electronic devices, creating digital games, and developing advanced image processing algorithms. I'm always eager to learn and apply new technologies to solve real-world problems."
     ];
     let lineIndex = 0;
     let charIndex = 0;
-    const speed = 35; // typing speed in milliseconds
+    const speed = 20; // typing speed in milliseconds
     const typingElements = [
         document.getElementById('typing1'),
     ];
