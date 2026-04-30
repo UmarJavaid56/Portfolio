@@ -69,15 +69,6 @@ body {
 
 /* Responsive adjustments for mobile view */
 @media (max-width: 767.98px) {
-  .about-text {
-    font-size: 18px !important;
-    /* Further reduce the font size for smaller screens */
-    margin-left: 20px !important;
-    margin-right: 20px !important;
-    word-wrap: break-word !important;
-    /* Ensure text wraps correctly */
-  }
-
   h2 {
     font-size: 1.5em;
     margin-left: 10px;
@@ -107,6 +98,10 @@ body {
 
   .navbar-nav .nav-link {
     padding: 10px;
+  }
+
+  .navbar-brand {
+    padding-left: 1rem !important;
   }
 }
 
@@ -197,49 +192,81 @@ p {
   margin-left: 40px;
 }
 
-
-
-.about-text {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 25px;
-  color: #50C878;
-  text-align: left;
-  margin-bottom: 20px;
-  margin-left: 40px;
-  margin-right: 40px;
-  word-wrap: break-word;
-  /* Ensure text wraps correctly */
-}
 /* Additional styles for sections */
-section#about {
-  padding: 30px 20px;
-  padding-bottom: 0px;
+section#experience {
+  padding: 20px 20px 5px 20px; 
 }
 
-section#experience {
-  padding: 10px 20px;
-  padding-bottom: 5px;
+#experience .row > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin-bottom: 0.5rem;
+}
+
+#experience .card {
+  max-width: 100%;
+  margin-bottom: 0;
+}
+
+#experience .card-body {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+#experience [class*="organization-"] {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+#experience .card-custom-7 .card-text {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#experience .row > [class*="col-"] > .card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#experience .row > [class*="col-"] > .card-link > .card {
+  flex: 1 1 auto;
+}
+
+#experience .row > [class*="col-"] > .card {
+  height: 100%;
+}
+
+#experience .row > [class*="col-"] > .card.card-custom-7 {
+  display: flex;
+  flex-direction: column;
+}
+
+#experience .row > [class*="col-"] > .card.card-custom-7 .card-body {
+  flex: 1;
 }
 
 section#projects {
-  padding: 10px 20px;
-  padding-top: 5px;
-}
-
-section#resume {
-  padding: 10px 20px;
+  padding: 0px 20px;
+  padding-top: 10px;
 }
 
 section#contact {
-  padding: 20px 20px;
+  padding: 0px 20px 20px 20px;
   text-align: center;
 }
 
-#about-heading,
+#contact p {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
 #experience-heading,
-#projects-heading,
-#resume-heading,
-#contact-heading {
+#projects-heading {
   font-weight: bold;
   margin-left: 40px;
   position: relative;
@@ -309,41 +336,6 @@ footer p {
   padding-left: 20px;
 }
 
-.resume-button-container {
-  display: flex;
-  justify-content: left;
-  margin-left: 35px;
-  margin-top: 20px;
-}
-
-.resume-button {
-  background-color: #f8f5ec;
-  color: #333;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-}
-
-.resume-button i {
-  margin-left: 8px;
-  transition: transform 0.3s ease;
-}
-
-.resume-button:hover {
-  background-color: #dda0dd;
-}
-
-.resume-button:hover i {
-  transform: translateX(5px);
-}
-
 /* Styles for project cards */
 .card {
   background-color: #2c2c2c;
@@ -411,79 +403,101 @@ footer p {
   height: 270px;
 }
 
-.card-custom-7 {
-  height: 150px;
-}
-
 
 .card-custom-7 p {
   font-size: 20px;
 }
 
-
-#typing1 {
-  white-space: normal;
-  /* Change to normal for word wrapping */
-  overflow: hidden;
-  display: inline-block;
-  width: 100%;
-  /* Ensure it takes up the full width of its container */
-  word-break: break-word;
-  /* Break words if needed to prevent overflow */
-  border-right: none;
+.experience-card-head {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
-@keyframes typing {
-  from {
-    width: 0
-  }
-
-  to {
-    width: 100%
-  }
-}
-
-
-@keyframes blink-caret {
-
-  from,
-  to {
-    border-color: transparent
-  }
-
-  50% {
-    border-color: #FCFBF4;
-  }
+.experience-card-head .card-title {
+  margin-bottom: 0;
+  flex: 1;
+  min-width: 0;
+  line-height: 1.3;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .mist-duration-container {
-  display: flex;
-  justify-content: left;
-  margin-left: 0px;
-  margin-top: 0px;
+  flex-shrink: 0;
+  margin: 0;
   background-color: #f8f5ec;
   color: #333;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 14px;
+  padding: 6px 14px;
+  font-size: 13px;
   font-weight: bold;
-  
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  .experience-card-head .mist-duration-container {
+    margin-left: auto;
+    margin-right: -20px;
+  }
+
+  .mist-duration-container {
+    white-space: nowrap;
+    width: 9.75rem;
+    min-width: 9.75rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .experience-card-head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .experience-card-head .card-title {
+    flex: none;
+    width: 100%;
+    min-width: unset;
+    font-size: 1.15rem;
+  }
+
+  .experience-card-head .mist-duration-container {
+    align-self: flex-start;
+    width: fit-content;
+    max-width: 100%;
+    min-width: 0;
+    white-space: normal;
+  }
+
+  .mist-duration-container {
+    padding: 3px 10px;
+    font-size: 11px;
+  }
 }
 
 .external-link-icon {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    font-size: 1.2em; /* Adjust size as needed */
+    font-size: 0.9em; 
 }
 .card-custom-1 {
-    position: relative; /* Ensure the card is a relative container for absolute positioning */
+    position: relative; 
+}
+
+.card-custom-1 > .card-body:first-child {
+  padding-bottom: 0.35rem;
+  padding-right: 2rem;
 }
 
 
