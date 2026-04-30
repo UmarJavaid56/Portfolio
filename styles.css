@@ -25,7 +25,7 @@
   --mist-shadow: rgba(0, 0, 0, 0.1);
   --nav-text: #fff;
   --nav-icon: #fff;
-  --nav-accent-hover: #50C878;
+  --nav-accent-hover: rgba(255, 255, 255, 0.12);
   --nav-link-border: #fff;
   --contact-icon: #fff;
   --contact-label: #fcfbf4d7;
@@ -57,7 +57,7 @@
   --mist-shadow: rgba(35, 30, 25, 0.12);
   --nav-text: #1a1a1a;
   --nav-icon: #1a1a1a;
-  --nav-accent-hover: #45b86e;
+  --nav-accent-hover: rgba(35, 30, 25, 0.11);
   --nav-link-border: #1a1a1a;
   --contact-icon: #1a1a1a;
   --contact-label: #444;
@@ -97,7 +97,7 @@ body {
 }
 
 .nav-item {
-  margin-right: 40px;
+  margin-right: 0;
 }
 
 .navbar-brand {
@@ -109,10 +109,14 @@ body {
 .nav-link {
   color: var(--nav-text) !important;
   font-size: 14px !important;
-  padding: 0 20px !important;
+  padding: 0 8px !important;
   display: inline-block;
   line-height: 40px;
   position: relative;
+}
+
+#contact-link {
+  margin-right: 0.5rem;
 }
 
 .fa-bars {
@@ -137,6 +141,7 @@ body {
 
 .navbar-nav {
   align-items: center;
+  gap: 0.15rem;
 }
 
 .theme-toggle {
@@ -192,6 +197,7 @@ body {
 
 .nav-item--theme {
   margin-right: 1.5rem;
+  margin-left: 0.35rem;
   display: flex;
   align-items: center;
 }
@@ -207,13 +213,54 @@ body {
     margin-left: 10px;
     margin-right: 10px;
   }
+
+  section#contact {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .contact-icons {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 0;
+    margin-right: 0;
+    column-gap: 0.75rem;
+    row-gap: 0.65rem;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .contact-icon {
+    margin: 0;
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+
+  .contact-icon span {
+    font-size: 15px;
+    margin-left: 6px;
+  }
+
+  #contact .contact-icon i {
+    font-size: 1.2rem !important;
+  }
+
+  footer p {
+    padding-left: 12px;
+    padding-right: 12px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 /* Custom styles for mobile view */
 @media (max-width: 991.98px) {
   .navbar-nav {
     width: 100%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center !important;
   }
 
   .navbar-collapse {
@@ -223,10 +270,20 @@ body {
   .navbar-nav .nav-item {
     margin-right: 0;
     margin-left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .navbar-nav .nav-link {
     padding: 10px;
+    text-align: center !important;
+    width: auto;
+  }
+
+  #contact-link {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   .navbar-brand {
@@ -235,6 +292,9 @@ body {
 
   .nav-item--theme {
     margin-top: 0.5rem;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    justify-content: center;
   }
 }
 
@@ -391,6 +451,11 @@ section#projects {
 section#contact {
   padding: 0px 20px 20px 20px;
   text-align: center;
+}
+
+#contact .separator {
+  margin-top: 0rem;
+  margin-bottom: 1rem;
 }
 
 #contact p {
