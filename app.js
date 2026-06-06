@@ -202,7 +202,12 @@ function initTerminal({ applyTheme, scrollToSection, root }) {
 
         const cmdLine = document.createElement('div');
         cmdLine.className = 'terminal-line terminal-line--cmd';
-        cmdLine.textContent = '$ ' + commandLine;
+
+        const dollar = document.createElement('span');
+        dollar.className = 'brand-dollar';
+        dollar.textContent = '$';
+        cmdLine.appendChild(dollar);
+        cmdLine.appendChild(document.createTextNode(' ' + commandLine));
         block.appendChild(cmdLine);
 
         if (result && result.html) {

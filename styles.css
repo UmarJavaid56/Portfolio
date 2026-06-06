@@ -144,6 +144,18 @@ body {
   opacity: 1;
 }
 
+.terminal-entry {
+  display: inline-flex;
+  align-items: flex-end;
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.brand-dollar {
+  flex-shrink: 0;
+  margin-right: 0.35em;
+}
+
 .terminal-input-field {
   position: relative;
   display: inline-block;
@@ -246,7 +258,7 @@ body {
 }
 
 .terminal-line--cmd {
-  white-space: pre;
+  white-space: pre-wrap;
 }
 
 .terminal-line--output {
@@ -525,6 +537,23 @@ body {
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     padding-left: 0.5rem;
+  }
+
+  .brand-user,
+  .brand-prompt,
+  .brand-home,
+  .brand-dollar {
+    flex-shrink: 0;
+  }
+
+  .terminal-entry {
+    flex-shrink: 1;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .brand-dollar {
+    margin-right: 0.4em;
   }
 
   .terminal-output {
