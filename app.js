@@ -233,7 +233,9 @@ function initTerminal({ applyTheme, scrollToSection, root }) {
             case 'help':
                 return { html: buildHelpHtml() };
             case 'whoami':
-                return { output: 'Umar Javaid\nSoftware Engineer' };
+                return {
+                    output: 'Umar Javaid, Software Engineer\nMcMaster · NVIDIA · AMD'
+                };
             case 'ls':
                 return { output: 'experience/  projects/  contact/' };
             case 'cd': {
