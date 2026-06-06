@@ -14,6 +14,9 @@
     </script>
     <title>Umar Javaid</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -25,7 +28,12 @@
     <section class="header">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-                <a class="navbar-brand" href="#">Umar Javaid</a>
+                <div class="terminal-wrap" id="terminal-wrap">
+                    <div class="navbar-brand terminal-prompt" id="terminal-prompt">
+                        <span class="brand-user">umar@localhost</span><span class="brand-prompt">:</span><span class="brand-home">~</span><span class="brand-prompt">$</span><span class="terminal-input-field" id="terminal-input-field" data-value=""><input type="text" id="terminal-input" class="terminal-input" aria-label="Terminal command" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" inputmode="text" /></span><span class="brand-cursor terminal-cursor" id="terminal-cursor" aria-hidden="true"></span>
+                    </div>
+                    <div class="terminal-output" id="terminal-output" aria-live="polite"></div>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>

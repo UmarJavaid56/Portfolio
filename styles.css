@@ -30,6 +30,10 @@
   --contact-icon: #fff;
   --contact-label: #fcfbf4d7;
   --navbar-shadow: rgba(0, 0, 0, 0.1);
+  --terminal-user: #76B900;
+  --terminal-prompt: #FCFBF4;
+  --terminal-home: #278cd6;
+  --terminal-cursor: #FCFBF4;
   --theme-toggle-bg: rgba(255, 255, 255, 0.12);
   --theme-toggle-hover: rgba(255, 255, 255, 0.22);
   --theme-toggle-border: rgba(255, 255, 255, 0.2);
@@ -62,6 +66,9 @@
   --contact-icon: #1a1a1a;
   --contact-label: #444;
   --navbar-shadow: rgba(35, 30, 25, 0.06);
+  --terminal-user: #256b47;
+  --terminal-prompt: #1a1a1a;
+  --terminal-cursor: #1a1a1a;
   --theme-toggle-bg: rgba(0, 0, 0, 0.06);
   --theme-toggle-hover: rgba(0, 0, 0, 0.11);
   --theme-toggle-border: rgba(0, 0, 0, 0.12);
@@ -102,8 +109,200 @@ body {
 
 .navbar-brand {
   color: var(--nav-text) !important;
-  font-size: 14px !important;
-  padding-left: 70px;
+  font-family: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Menlo, monospace;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  padding-left: 0;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1;
+  transition: opacity 0.2s ease;
+}
+
+.terminal-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: min(100%, calc(100vw - 5rem));
+  margin-left: 2.25rem;
+}
+
+.terminal-prompt {
+  display: inline-flex;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  cursor: text;
+  padding-right: 0.5rem;
+}
+
+.terminal-prompt:hover,
+.terminal-prompt:focus-within {
+  opacity: 1;
+}
+
+.terminal-input-field {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  max-width: 14rem;
+}
+
+.terminal-input-field::after {
+  content: attr(data-value);
+  visibility: hidden;
+  white-space: pre;
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  min-height: 1em;
+  pointer-events: none;
+}
+
+.terminal-input {
+  position: absolute;
+  inset: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--terminal-prompt);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  caret-color: transparent;
+}
+
+.terminal-input::selection {
+  background: var(--nav-accent-hover);
+}
+
+.terminal-input:focus {
+  outline: none;
+}
+
+.terminal-output {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  z-index: 1031;
+  margin: 0;
+  padding: 0.55rem 0.75rem;
+  font-family: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Menlo, monospace;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--terminal-prompt);
+  background: var(--bg-nav);
+  border: 1px solid var(--border-separator);
+  border-radius: 4px;
+  box-shadow: 0 4px 14px var(--navbar-shadow);
+  max-width: min(420px, calc(100vw - 2rem));
+  min-width: min(360px, calc(100vw - 2rem));
+  max-height: min(50vh, 320px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  box-sizing: border-box;
+  cursor: text;
+  scroll-behavior: smooth;
+}
+
+.terminal-output:not(:empty) {
+  display: block;
+}
+
+.terminal-block + .terminal-block {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-separator);
+}
+
+.terminal-line--cmd {
+  white-space: pre;
+}
+
+.terminal-line--output {
+  margin-top: 0.35rem;
+  white-space: pre-line;
+}
+
+.terminal-help-title {
+  margin-bottom: 0.35rem;
+}
+
+.terminal-help-grid {
+  display: grid;
+  grid-template-columns: 5.25rem 1fr;
+  column-gap: 0.75rem;
+  row-gap: 0.2rem;
+}
+
+.terminal-help-row {
+  display: contents;
+}
+
+.terminal-help-cmd {
+  color: var(--terminal-home);
+  white-space: nowrap;
+}
+
+.terminal-help-desc {
+  color: var(--terminal-prompt);
+  min-width: 0;
+}
+
+
+.brand-user,
+.brand-prompt,
+.brand-home {
+  transition: color 0.25s ease;
+}
+
+.brand-user {
+  color: var(--terminal-user);
+}
+
+.brand-prompt {
+  color: var(--terminal-prompt);
+}
+
+.brand-home {
+  color: var(--terminal-home);
+}
+
+.brand-cursor {
+  display: block;
+  flex-shrink: 0;
+  width: 0.5em;
+  height: 1.15em;
+  margin-left: 0.1em;
+  background: var(--terminal-cursor);
+  animation: terminal-cursor-blink 1.05s step-end infinite;
+}
+
+@keyframes terminal-cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-cursor {
+    animation: none;
+  }
 }
 
 .nav-link {
@@ -255,6 +454,11 @@ body {
 
 /* Custom styles for mobile view */
 @media (max-width: 991.98px) {
+  .navbar {
+    flex-wrap: wrap;
+    align-items: flex-start !important;
+  }
+
   .navbar-nav {
     width: 100%;
     display: flex;
@@ -287,7 +491,52 @@ body {
   }
 
   .navbar-brand {
-    padding-left: 1rem !important;
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .terminal-wrap {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: calc(100vw - 4.5rem);
+    margin-left: 1.25rem;
+  }
+
+  .terminal-prompt {
+    min-height: 44px;
+    align-items: center;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-left: 0.5rem;
+  }
+
+  .terminal-output {
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    max-height: min(45vh, 280px);
+  }
+
+  .terminal-input-field {
+    max-width: min(12rem, calc(100vw - 10.5rem));
+  }
+
+  .terminal-input-field::after,
+  .terminal-input {
+    font-size: 1rem;
+  }
+
+  .terminal-help-grid {
+    grid-template-columns: 4.25rem 1fr;
+    column-gap: 0.5rem;
+  }
+
+  .terminal-help-desc {
+    font-size: 0.75rem;
+    line-height: 1.35;
   }
 
   .nav-item--theme {
@@ -295,6 +544,12 @@ body {
     margin-left: 0 !important;
     margin-right: 0 !important;
     justify-content: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .terminal-input-field {
+    max-width: min(8rem, calc(100vw - 9rem));
   }
 }
 
@@ -465,7 +720,6 @@ section#contact {
   overflow-wrap: break-word;
 }
 
-#experience-heading,
 #projects-heading {
   font-weight: bold;
   margin-left: 40px;
