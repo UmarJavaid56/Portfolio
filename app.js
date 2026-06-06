@@ -97,8 +97,92 @@ function initTerminal({ applyTheme, scrollToSection, root }) {
         );
     }
 
+    const GHOST_HINT_KEY = 'portfolio-terminal-discovered';
+    let ghostHintStop = null;
+
+    function stopGhostHint() {
+        if (ghostHintStop) ghostHintStop();
+    }
+
     function syncInputWidth() {
         terminalInputField.dataset.value = terminalInput.value;
+        if (terminalInput.value) {
+            stopGhostHint();
+        }
+    }
+
+    function initGhostHint() {
+        const ghost = document.getElementById('terminal-ghost');
+        if (!ghost || localStorage.getItem(GHOST_HINT_KEY)) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const GHOST_TEXT = ' Enter help';
+        const TYPE_MS = 130;
+        const ERASE_MS = 95;
+        const HOLD_TYPED_MS = 2800;
+        const PAUSE_EMPTY_MS = 6000;
+        const START_DELAY_MS = 2200;
+
+        let timeoutId = null;
+        let charIndex = 0;
+        let stopped = false;
+
+        function clearTimer() {
+            if (timeoutId !== null) {
+                clearTimeout(timeoutId);
+                timeoutId = null;
+            }
+        }
+
+        function shouldContinue() {
+            return !stopped &&
+                !localStorage.getItem(GHOST_HINT_KEY) &&
+                !terminalInput.value;
+        }
+
+        function schedule(fn, delay) {
+            clearTimer();
+            timeoutId = window.setTimeout(fn, delay);
+        }
+
+        function tickErase() {
+            if (!shouldContinue()) return;
+            charIndex -= 1;
+            ghost.textContent = GHOST_TEXT.slice(0, charIndex);
+            if (charIndex > 0) {
+                schedule(tickErase, ERASE_MS);
+            } else {
+                ghost.textContent = '';
+                schedule(startTyping, PAUSE_EMPTY_MS);
+            }
+        }
+
+        function tickType() {
+            if (!shouldContinue()) return;
+            charIndex += 1;
+            ghost.textContent = GHOST_TEXT.slice(0, charIndex);
+            if (charIndex < GHOST_TEXT.length) {
+                schedule(tickType, TYPE_MS);
+            } else {
+                schedule(tickErase, HOLD_TYPED_MS);
+            }
+        }
+
+        function startTyping() {
+            if (!shouldContinue()) return;
+            charIndex = 0;
+            tickType();
+        }
+
+        ghostHintStop = function () {
+            if (stopped) return;
+            stopped = true;
+            clearTimer();
+            ghost.textContent = '';
+            localStorage.setItem(GHOST_HINT_KEY, '1');
+        };
+
+        schedule(startTyping, START_DELAY_MS);
     }
 
     function normalizeDir(name) {
@@ -173,6 +257,7 @@ function initTerminal({ applyTheme, scrollToSection, root }) {
     }
 
     function submitCommand() {
+        stopGhostHint();
         const value = terminalInput.value;
         const result = runCommand(value);
 
@@ -194,6 +279,7 @@ function initTerminal({ applyTheme, scrollToSection, root }) {
     }
 
     function focusTerminalInput() {
+        stopGhostHint();
         terminalInput.focus();
     }
 
@@ -246,6 +332,8 @@ function initTerminal({ applyTheme, scrollToSection, root }) {
     terminalInput.addEventListener('input', syncInputWidth);
 
     terminalInput.addEventListener('keydown', function (event) {
+        stopGhostHint();
+
         if (event.key === 'Enter') {
             event.preventDefault();
             submitCommand();
@@ -303,4 +391,5 @@ function initTerminal({ applyTheme, scrollToSection, root }) {
     }, { passive: true });
 
     syncInputWidth();
+    initGhostHint();
 }

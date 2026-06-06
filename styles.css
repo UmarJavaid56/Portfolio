@@ -34,6 +34,7 @@
   --terminal-prompt: #FCFBF4;
   --terminal-home: #278cd6;
   --terminal-cursor: #FCFBF4;
+  --terminal-ghost: #6a9fbf;
   --theme-toggle-bg: rgba(255, 255, 255, 0.12);
   --theme-toggle-hover: rgba(255, 255, 255, 0.22);
   --theme-toggle-border: rgba(255, 255, 255, 0.2);
@@ -69,6 +70,7 @@
   --terminal-user: #256b47;
   --terminal-prompt: #1a1a1a;
   --terminal-cursor: #1a1a1a;
+  --terminal-ghost: #6a9fbf;
   --theme-toggle-bg: rgba(0, 0, 0, 0.06);
   --theme-toggle-hover: rgba(0, 0, 0, 0.11);
   --theme-toggle-border: rgba(0, 0, 0, 0.12);
@@ -189,6 +191,19 @@ body {
 
 .terminal-input:focus {
   outline: none;
+}
+
+.terminal-ghost {
+  display: inline-block;
+  min-width: 0;
+  color: var(--terminal-ghost);
+  pointer-events: none;
+  white-space: pre;
+}
+
+.terminal-ghost:empty {
+  width: 0;
+  overflow: hidden;
 }
 
 .terminal-output {
