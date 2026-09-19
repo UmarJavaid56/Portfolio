@@ -279,6 +279,19 @@ body {
   min-width: 0;
 }
 
+.terminal-mcmaster {
+  color: #E06A98 ;
+  
+}
+
+.terminal-nvidia {
+  color: #76B900;
+}
+
+.terminal-amd {
+  color: #ED1C24;
+}
+
 
 .brand-user,
 .brand-prompt,
